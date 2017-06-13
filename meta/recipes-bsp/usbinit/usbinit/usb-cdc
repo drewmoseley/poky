@@ -1,0 +1,23 @@
+#! /bin/sh
+#
+# usb-cdc 	Start up the gadget usb composite CDC interface.
+#
+
+case "$1" in
+	start|"")
+		test "$VERBOSE" != no && echo "Initializing g_cdc gadget..."
+		modprobe g_cdc
+		ifup usb0
+		;;
+	stop)
+		test "$VERBOSE" != no && echo "Disabling g_cdc..."
+		ifdown usb0
+		rmmod g_cdc
+		;;
+	*)
+		echo "Usage: usb-cdc {start|stop}" >&2
+		exit 1
+		;;
+esac
+
+exit 0

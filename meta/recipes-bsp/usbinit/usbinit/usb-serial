@@ -1,0 +1,21 @@
+#! /bin/sh
+#
+# usb-serial 	Start up the gadget usb serial interface.
+#
+
+case "$1" in
+	start|"")
+		test "$VERBOSE" != no && echo "Initializing g_serial gadget..."
+		modprobe g_serial
+		;;
+	stop)
+		test "$VERBOSE" != no && echo "Disabling g_serial..."
+		rmmod g_serial
+		;;
+	*)
+		echo "Usage: usb-serial {start|stop}" >&2
+		exit 1
+		;;
+esac
+
+exit 0
