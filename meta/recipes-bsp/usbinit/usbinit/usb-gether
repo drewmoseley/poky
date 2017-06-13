@@ -1,6 +1,6 @@
 #! /bin/sh
 #
-# usb-ether 	Start up the gadget usb ethernet interface.
+# usb-gether 	Start up the gadget usb ethernet interface.
 #
 
 case "$1" in
@@ -15,7 +15,7 @@ case "$1" in
 		rmmod g_ether
 		;;
 	*)
-		echo "Usage: usb-ether {start|stop}" >&2
+		echo "Usage: usb-gether {start|stop}" >&2
 		exit 1
 		;;
 esac
